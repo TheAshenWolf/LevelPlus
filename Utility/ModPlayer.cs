@@ -310,7 +310,6 @@ namespace LevelPlus {
       //mobility
       Player.maxRunSpeed *= 1.00f + (mobility * LevelPlusConfig.Instance.RunSpeedPerPoint);
       Player.runAcceleration *= 1.00f + (mobility * LevelPlusConfig.Instance.AccelPerPoint);
-      Player.wingTimeMax += (int)(Player.wingTimeMax * (mobility * LevelPlusConfig.Instance.WingPerPoint));
       //mysticism
       Player.statManaMax2 += (LevelPlusConfig.Instance.ManaPerLevel * level) + (LevelPlusConfig.Instance.ManaPerPoint * mysticism);
       Player.manaRegen += mysticism / LevelPlusConfig.Instance.ManaRegPerPoint;
@@ -320,6 +319,7 @@ namespace LevelPlus {
     public override void PostUpdateEquips() {
       base.PostUpdateEquips();
       Player.maxMinions += animalia / LevelPlusConfig.Instance.MinionPerPoint;
+      Player.wingTimeMax += (int)(Player.wingTimeMax * (mobility * LevelPlusConfig.Instance.WingPerPoint));
     }
 
     public override void ModifyManaCost(Item item, ref float reduce, ref float mult) {
